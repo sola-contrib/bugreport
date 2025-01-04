@@ -147,9 +147,16 @@ impl Collector for OperatingSystem {
     }
 
     fn collect(&mut self, _: &CrateInfo) -> Result<ReportEntry> {
-        Ok(ReportEntry::Text(
-            sysinfo::System::long_os_version().unwrap_or_else(|| "Unknown".to_owned()),
-        ))
+        Ok(ReportEntry::List(vec![
+            ReportEntry::Text(format!(
+                "OS: {}",
+                sysinfo::System::long_os_version().unwrap_or_else(|| "Unknown".to_owned()),
+            )),
+            ReportEntry::Text(format!(
+                "Kernel: {}",
+                sysinfo::System::kernel_version().unwrap_or_else(|| "Unknown".to_owned()),
+            )),
+        ]))
     }
 }
 

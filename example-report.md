@@ -4,7 +4,8 @@ bugreport 0.4.0 (4687617)
 
 #### Operating system
 
-Linux (Ubuntu 24.04)
+- OS: Linux (Ubuntu 24.04)
+- Kernel: 6.8.0-48-generic
 
 #### Command-line
 
